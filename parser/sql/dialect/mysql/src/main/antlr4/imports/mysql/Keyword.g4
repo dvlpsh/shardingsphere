@@ -76,6 +76,10 @@ LAST_DAY
     : L A S T UL_ D A Y
     ;
 
+MAKE_SET
+    : M A K E UL_ S E T
+    ;
+
 TRADITIONAL
     : T R A D I T I O N A L
     ;
