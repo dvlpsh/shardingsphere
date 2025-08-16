@@ -5296,4 +5296,141 @@
             <simple-table name="DUAL" start-index="74" stop-index="77"/>
         </from>
     </select>
+
+    <select sql-case-id="select_make_set_simple">
+        <projections start-index="7" stop-index="32">
+            <expression-projection text="MAKE_SET(1, 'a', 'b', 'c')" start-index="7" stop-index="32">
+                <expr>
+                    <function function-name="MAKE_SET" start-index="7" stop-index="32" text="MAKE_SET(1, 'a', 'b', 'c')">
+                        <parameter>
+                            <literal-expression value="1" start-index="16" stop-index="16" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="a" start-index="19" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="b" start-index="24" stop-index="26" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="c" start-index="29" stop-index="31" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_make_set_multiple_bits">
+        <projections start-index="7" stop-index="47">
+            <expression-projection text="MAKE_SET(1 | 4, 'hello', 'nice', 'world')" start-index="7" stop-index="47">
+                <expr>
+                    <function function-name="MAKE_SET" start-index="7" stop-index="47" text="MAKE_SET(1 | 4, 'hello', 'nice', 'world')">
+                        <parameter>
+                            <binary-operation-expression start-index="16" stop-index="20" text="1 | 4">
+                                <left>
+                                    <literal-expression value="1" start-index="16" stop-index="16" />
+                                </left>
+                                <operator>|</operator>
+                                <right>
+                                    <literal-expression value="4" start-index="20" stop-index="20" />
+                                </right>
+                            </binary-operation-expression>
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="hello" start-index="23" stop-index="29" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="nice" start-index="32" stop-index="37" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="world" start-index="40" stop-index="46" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_make_set_with_null">
+        <projections start-index="7" stop-index="53">
+            <expression-projection text="MAKE_SET(1 | 4, 'hello', 'nice', NULL, 'world')" start-index="7" stop-index="53">
+                <expr>
+                    <function function-name="MAKE_SET" start-index="7" stop-index="53" text="MAKE_SET(1 | 4, 'hello', 'nice', NULL, 'world')">
+                        <parameter>
+                            <binary-operation-expression start-index="16" stop-index="20" text="1 | 4">
+                                <left>
+                                    <literal-expression value="1" start-index="16" stop-index="16" />
+                                </left>
+                                <operator>|</operator>
+                                <right>
+                                    <literal-expression value="4" start-index="20" stop-index="20" />
+                                </right>
+                            </binary-operation-expression>
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="hello" start-index="23" stop-index="29" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="nice" start-index="32" stop-index="37" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="null" start-index="40" stop-index="43" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="world" start-index="46" stop-index="52" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_make_set_zero_bits">
+        <projections start-index="7" stop-index="32">
+            <expression-projection text="MAKE_SET(0, 'a', 'b', 'c')" start-index="7" stop-index="32">
+                <expr>
+                    <function function-name="MAKE_SET" start-index="7" stop-index="32" text="MAKE_SET(0, 'a', 'b', 'c')">
+                        <parameter>
+                            <literal-expression value="0" start-index="16" stop-index="16" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="a" start-index="19" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="b" start-index="24" stop-index="26" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="c" start-index="29" stop-index="31" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_make_set_from_table">
+        <projections start-index="7" stop-index="55">
+            <expression-projection text="MAKE_SET(status, 'pending', 'active', 'inactive')" start-index="7" stop-index="55">
+                <expr>
+                    <function function-name="MAKE_SET" start-index="7" stop-index="55" text="MAKE_SET(status, 'pending', 'active', 'inactive')">
+                        <parameter>
+                            <column name="status" start-index="16" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="pending" start-index="24" stop-index="32" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="active" start-index="35" stop-index="42" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="inactive" start-index="45" stop-index="54" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+        <from>
+            <simple-table name="t_order" start-index="62" stop-index="68" />
+        </from>
+    </select>
 </sql-parser-test-cases>
