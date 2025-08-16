@@ -1004,11 +1004,15 @@ public abstract class MySQLStatementVisitor extends MySQLStatementBaseVisitor<AS
         if (null != ctx.distinct()) {
             AggregationDistinctProjectionSegment result =
                     new AggregationDistinctProjectionSegment(ctx.getStart().getStartIndex(), ctx.getStop().getStopIndex(), type, getOriginalText(ctx), getDistinctExpression(ctx), separator);
-            result.getParameters().addAll(getExpressions(ctx.aggregationExpression().expr()));
+            if (null != ctx.aggregationExpression() && null != ctx.aggregationExpression().expr()) {
+                result.getParameters().addAll(getExpressions(ctx.aggregationExpression().expr()));
+            }
             return result;
         }
         AggregationProjectionSegment result = new AggregationProjectionSegment(ctx.getStart().getStartIndex(), ctx.getStop().getStopIndex(), type, getOriginalText(ctx), separator);
-        result.getParameters().addAll(getExpressions(ctx.aggregationExpression().expr()));
+        if (null != ctx.aggregationExpression() && null != ctx.aggregationExpression().expr()) {
+            result.getParameters().addAll(getExpressions(ctx.aggregationExpression().expr()));
+        }
         return result;
     }
     
@@ -1024,7 +1028,7 @@ public abstract class MySQLStatementVisitor extends MySQLStatementBaseVisitor<AS
     }
     
     private String getDistinctExpression(final AggregationFunctionContext ctx) {
-        return ctx.aggregationExpression().getText();
+        return null != ctx.aggregationExpression() ? ctx.aggregationExpression().getText() : "";
     }
     
     @Override
