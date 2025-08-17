@@ -310,4 +310,9 @@
     <sql-case id="select_make_set_with_null" value="SELECT MAKE_SET(1 | 4, 'hello', 'nice', NULL, 'world')" db-types="MySQL" />
     <sql-case id="select_make_set_zero_bits" value="SELECT MAKE_SET(0, 'a', 'b', 'c')" db-types="MySQL" />
     <sql-case id="select_make_set_from_table" value="SELECT MAKE_SET(status, 'pending', 'active', 'inactive') FROM t_order" db-types="MySQL" />
+    <sql-case id="select_makedate_function" value="SELECT MAKEDATE(2011, 31)" db-types="MySQL" />
+    <sql-case id="select_makedate_function_with_table" value="SELECT MAKEDATE(year_col, day_col) FROM date_table" db-types="MySQL" />
+    <sql-case id="select_makedate_function_complex" value="SELECT user_id, MAKEDATE(YEAR(created_at), 100) as day100 FROM users WHERE id = 1" db-types="MySQL" />
+    <sql-case id="select_makedate_function_zero" value="SELECT MAKEDATE(2011, 0)" db-types="MySQL" />
+    <sql-case id="select_makedate_function_365" value="SELECT MAKEDATE(2014, 365)" db-types="MySQL" />
 </sql-cases>
