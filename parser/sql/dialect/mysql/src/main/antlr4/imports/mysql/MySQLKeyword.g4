@@ -1295,6 +1295,10 @@ LOCALTIMESTAMP
     : L O C A L T I M E S T A M P
     ;
 
+LTRIM
+    : L T R I M
+    ;
+
 LOCK
     : L O C K
     ;

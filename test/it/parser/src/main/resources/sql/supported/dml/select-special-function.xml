@@ -38,6 +38,11 @@
     <sql-case id="select_with_trim_expr_and_both" value="SELECT TRIM(BOTH '#' FROM `name`) FROM `t_order`" db-types="MySQL" />
     <sql-case id="select_with_trim_expr_from_expr" value="SELECT TRIM(remove_name FROM name) FROM t_order" db-types="MySQL" />
     <sql-case id="select_with_trim_expr_from_expr_and_both" value="SELECT TRIM(BOTH `remove_name` FROM `name`) FROM `t_order`" db-types="MySQL" />
+    <sql-case id="select_ltrim_basic" value="SELECT LTRIM('  test')" db-types="MySQL" />
+    <sql-case id="select_ltrim_column" value="SELECT LTRIM(name) FROM users" db-types="MySQL" />
+    <sql-case id="select_ltrim_where" value="SELECT * FROM users WHERE LTRIM(name) = 'John'" db-types="MySQL" />
+    <sql-case id="select_ltrim_alias" value="SELECT LTRIM(' data ') AS trimmed_data" db-types="MySQL" />
+    <sql-case id="select_ltrim_table_column" value="SELECT LTRIM(users.name) FROM users WHERE id = 1" db-types="MySQL" />
     <sql-case id="select_weight_string" value="SELECT WEIGHT_STRING('bar')" db-types="MySQL" />
     <sql-case id="select_values" value="SELECT VALUES(order_id) FROM t_order" db-types="MySQL" />
     <sql-case id="select_current_user_brackets" value="SELECT CURRENT_USER()" db-types="MySQL" />
