@@ -1479,6 +1479,10 @@ MBRCOVERS
     : M B R C O V E R S
     ;
 
+MBRDISJOINT
+    : M B R D I S J O I N T
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
