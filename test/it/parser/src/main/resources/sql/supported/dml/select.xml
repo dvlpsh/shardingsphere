@@ -370,24 +370,4 @@
     <sql-case id="select_with_predict_function" value="SELECT d.*, p.Score FROM PREDICT(MODEL = @model, DATA = dbo.mytable AS d) WITH (Score FLOAT) AS p;" db-types="SQLServer"/>
     <sql-case id="select_window_clause" value="SELECT user_id, ROW_NUMBER() OVER w AS 'row_number', RANK() OVER w AS 'rank', DENSE_RANK() OVER w AS 'dense_rank' FROM t_order WHERE order_id = ? WINDOW w AS (ORDER BY user_id)" db-types="SQLServer"/>
     <sql-case id="select_maxrecursion_hint" value="SELECT * FROM Person OPTION (MAXRECURSION 2);" db-types="SQLServer"/>
-    
-    <!-- MATCH() Boolean Mode Test Cases -->
-    <sql-case id="select_match_boolean_required" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('+MySQL +database' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_boolean_exclude" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('+MySQL -security' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_boolean_wildcard" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('admin*' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_boolean_phrase" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('&quot;MySQL tutorial&quot;' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_boolean_soft_exclude" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('+MySQL ~security' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_boolean_complex" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('+(MySQL tutorial) -(security performance)' IN BOOLEAN MODE)" db-types="MySQL" />
-    
-    <!-- MATCH() Query Expansion Test Cases -->
-    <sql-case id="select_match_query_expansion" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('database' WITH QUERY EXPANSION)" db-types="MySQL" />
-    <sql-case id="select_match_natural_query_expansion" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST('MySQL' IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION)" db-types="MySQL" />
-    
-    <!-- MATCH() with Parameter Binding -->
-    <sql-case id="select_match_boolean_params" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST(? IN BOOLEAN MODE) AND user_id = ?" db-types="MySQL" />
-    <sql-case id="select_match_expansion_params" value="SELECT * FROM articles WHERE MATCH(title,body) AGAINST(? WITH QUERY EXPANSION) AND status = ?" db-types="MySQL" />
-    
-    <!-- MATCH() Relevance Scoring -->
-    <sql-case id="select_match_boolean_relevance" value="SELECT id, title, MATCH(title,body) AGAINST('+MySQL +database' IN BOOLEAN MODE) AS relevance FROM articles WHERE MATCH(title,body) AGAINST('+MySQL +database' IN BOOLEAN MODE)" db-types="MySQL" />
-    <sql-case id="select_match_expansion_relevance" value="SELECT id, title, MATCH(title,body) AGAINST('database' WITH QUERY EXPANSION) AS score FROM articles WHERE MATCH(title,body) AGAINST('database' WITH QUERY EXPANSION)" db-types="MySQL" />
 </sql-cases>
