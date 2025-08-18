@@ -1495,6 +1495,10 @@ MBROVERLAPS
     : M B R O V E R L A P S
     ;
 
+MBRTOUCHES
+    : M B R T O U C H E S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
