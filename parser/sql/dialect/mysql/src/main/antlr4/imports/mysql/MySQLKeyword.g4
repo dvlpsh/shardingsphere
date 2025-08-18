@@ -1471,6 +1471,10 @@ MBRCONTAINS
     : M B R C O N T A I N S
     ;
 
+MBRCOVEREDBY
+    : M B R C O V E R E D B Y
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
