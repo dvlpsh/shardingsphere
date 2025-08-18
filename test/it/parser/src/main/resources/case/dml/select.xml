@@ -12349,4 +12349,80 @@
             </expr>
         </where>
     </select>
+    
+    <select sql-case-id="select_with_mbroverlaps_function">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="75">
+            <expr>
+                <function function-name="MBROverlaps" start-index="28" stop-index="75" text="MBROverlaps(POINT(1,1), POINT(user_id,order_id))">
+                    <parameter>
+                        <function function-name="POINT" start-index="40" stop-index="48" text="POINT(1,1)">
+                            <parameter>
+                                <literal-expression value="1" start-index="46" stop-index="46" />
+                            </parameter>
+                            <parameter>
+                                <literal-expression value="1" start-index="48" stop-index="48" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                    <parameter>
+                        <function function-name="POINT" start-index="51" stop-index="73" text="POINT(user_id,order_id)">
+                            <parameter>
+                                <column-reference name="user_id" start-index="57" stop-index="63" />
+                            </parameter>
+                            <parameter>
+                                <column-reference name="order_id" start-index="65" stop-index="72" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_mbroverlaps_with_variables">
+        <from>
+            <simple-table name="t_order" start-index="29" stop-index="35" />
+        </from>
+        <projections start-index="7" stop-index="27">
+            <expression-projection start-index="7" stop-index="27" text="MBROverlaps(@g1, @g2)" alias="">
+                <expr>
+                    <function function-name="MBROverlaps" start-index="7" stop-index="27" text="MBROverlaps(@g1, @g2)">
+                        <parameter>
+                            <variable name="g1" start-index="19" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <variable name="g2" start-index="24" stop-index="26" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_mbroverlaps_with_geometry_columns">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="52">
+            <expr>
+                <function function-name="MBROverlaps" start-index="28" stop-index="52" text="MBROverlaps(geom1, geom2)">
+                    <parameter>
+                        <column-reference name="geom1" start-index="40" stop-index="44" />
+                    </parameter>
+                    <parameter>
+                        <column-reference name="geom2" start-index="47" stop-index="51" />
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
 </sql-parser-test-cases>
