@@ -12273,4 +12273,80 @@
             </expr>
         </where>
     </select>
+    
+    <select sql-case-id="select_with_mbrintersects_function">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="77">
+            <expr>
+                <function function-name="MBRIntersects" start-index="28" stop-index="77" text="MBRIntersects(POINT(1,1), POINT(user_id,order_id))">
+                    <parameter>
+                        <function function-name="POINT" start-index="42" stop-index="50" text="POINT(1,1)">
+                            <parameter>
+                                <literal-expression value="1" start-index="48" stop-index="48" />
+                            </parameter>
+                            <parameter>
+                                <literal-expression value="1" start-index="50" stop-index="50" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                    <parameter>
+                        <function function-name="POINT" start-index="53" stop-index="75" text="POINT(user_id,order_id)">
+                            <parameter>
+                                <column-reference name="user_id" start-index="59" stop-index="65" />
+                            </parameter>
+                            <parameter>
+                                <column-reference name="order_id" start-index="67" stop-index="74" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_mbrintersects_with_variables">
+        <from>
+            <simple-table name="t_order" start-index="31" stop-index="37" />
+        </from>
+        <projections start-index="7" stop-index="29">
+            <expression-projection start-index="7" stop-index="29" text="MBRIntersects(@g1, @g2)" alias="">
+                <expr>
+                    <function function-name="MBRIntersects" start-index="7" stop-index="29" text="MBRIntersects(@g1, @g2)">
+                        <parameter>
+                            <variable name="g1" start-index="21" stop-index="23" />
+                        </parameter>
+                        <parameter>
+                            <variable name="g2" start-index="26" stop-index="28" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_mbrintersects_with_geometry_columns">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="54">
+            <expr>
+                <function function-name="MBRIntersects" start-index="28" stop-index="54" text="MBRIntersects(geom1, geom2)">
+                    <parameter>
+                        <column-reference name="geom1" start-index="42" stop-index="46" />
+                    </parameter>
+                    <parameter>
+                        <column-reference name="geom2" start-index="49" stop-index="53" />
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
 </sql-parser-test-cases>

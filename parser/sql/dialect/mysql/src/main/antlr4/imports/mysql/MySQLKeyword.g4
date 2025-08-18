@@ -1487,6 +1487,10 @@ MBREQUALS
     : M B R E Q U A L S
     ;
 
+MBRINTERSECTS
+    : M B R I N T E R S E C T S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;

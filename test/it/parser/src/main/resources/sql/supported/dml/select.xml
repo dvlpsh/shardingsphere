@@ -103,6 +103,9 @@
     <sql-case id="select_with_mbrequals_function" value="SELECT * FROM t_order WHERE MBREquals(POINT(1,1), POINT(user_id,order_id))" db-types="MySQL" />
     <sql-case id="select_mbrequals_with_variables" value="SELECT MBREquals(@g1, @g2) FROM t_order" db-types="MySQL" />
     <sql-case id="select_mbrequals_with_geometry_columns" value="SELECT * FROM t_order WHERE MBREquals(geom1, geom2)" db-types="MySQL" />
+    <sql-case id="select_with_mbrintersects_function" value="SELECT * FROM t_order WHERE MBRIntersects(POINT(1,1), POINT(user_id,order_id))" db-types="MySQL" />
+    <sql-case id="select_mbrintersects_with_variables" value="SELECT MBRIntersects(@g1, @g2) FROM t_order" db-types="MySQL" />
+    <sql-case id="select_mbrintersects_with_geometry_columns" value="SELECT * FROM t_order WHERE MBRIntersects(geom1, geom2)" db-types="MySQL" />
     <sql-case id="select_current_user" value="SELECT CURRENT_USER" db-types="PostgreSQL,openGauss" />
     <sql-case id="select_with_match_against" value="SELECT * FROM t_order_item WHERE MATCH(t_order_item.description) AGAINST (? IN NATURAL LANGUAGE MODE) AND user_id = ?" db-types="MySQL" />
     <sql-case id="select_with_json_separator" value="select content_json->>'$.nation' as nation,content_json->>'$.title' as title from tb_content_json b where b.content_id=1" db-types="MySQL" />
