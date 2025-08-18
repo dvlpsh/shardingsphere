@@ -12188,4 +12188,80 @@
             </expr>
         </where>
     </select>
+    
+    <select sql-case-id="select_with_mbrequals_function">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="73">
+            <expr>
+                <function function-name="MBREquals" start-index="28" stop-index="73" text="MBREquals(POINT(1,1), POINT(user_id,order_id))">
+                    <parameter>
+                        <function function-name="POINT" start-index="38" stop-index="47" text="POINT(1,1)">
+                            <parameter>
+                                <literal-expression value="1" start-index="44" stop-index="44" />
+                            </parameter>
+                            <parameter>
+                                <literal-expression value="1" start-index="46" stop-index="46" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                    <parameter>
+                        <function function-name="POINT" start-index="50" stop-index="72" text="POINT(user_id,order_id)">
+                            <parameter>
+                                <column-reference name="user_id" start-index="56" stop-index="62" />
+                            </parameter>
+                            <parameter>
+                                <column-reference name="order_id" start-index="64" stop-index="71" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_mbrequals_with_variables">
+        <from>
+            <simple-table name="t_order" start-index="29" stop-index="35" />
+        </from>
+        <projections start-index="7" stop-index="27">
+            <expression-projection text="MBREquals(@g1, @g2)" start-index="7" stop-index="27">
+                <expr>
+                    <function function-name="MBREquals" start-index="7" stop-index="27" text="MBREquals(@g1, @g2)">
+                        <parameter>
+                            <variable name="g1" start-index="17" stop-index="19" />
+                        </parameter>
+                        <parameter>
+                            <variable name="g2" start-index="22" stop-index="24" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_mbrequals_with_geometry_columns">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="50">
+            <expr>
+                <function function-name="MBREquals" start-index="28" stop-index="50" text="MBREquals(geom1, geom2)">
+                    <parameter>
+                        <column-reference name="geom1" start-index="38" stop-index="42" />
+                    </parameter>
+                    <parameter>
+                        <column-reference name="geom2" start-index="45" stop-index="49" />
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
 </sql-parser-test-cases>

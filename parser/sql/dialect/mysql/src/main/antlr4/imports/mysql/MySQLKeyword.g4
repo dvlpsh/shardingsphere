@@ -1483,6 +1483,10 @@ MBRDISJOINT
     : M B R D I S J O I N T
     ;
 
+MBREQUALS
+    : M B R E Q U A L S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
