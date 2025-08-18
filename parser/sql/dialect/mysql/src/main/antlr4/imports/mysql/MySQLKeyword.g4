@@ -1475,6 +1475,10 @@ MBRCOVEREDBY
     : M B R C O V E R E D B Y
     ;
 
+MBRCOVERS
+    : M B R C O V E R S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;

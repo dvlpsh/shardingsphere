@@ -11970,6 +11970,82 @@
         </where>
     </select>
     
+    <select sql-case-id="select_with_mbrcovers_function">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="72">
+            <expr>
+                <function function-name="MBRCovers" start-index="28" stop-index="72" text="MBRCovers(POINT(1,1), POINT(user_id,order_id))">
+                    <parameter>
+                        <function function-name="POINT" start-index="38" stop-index="47" text="POINT(1,1)">
+                            <parameter>
+                                <literal-expression value="1" start-index="44" stop-index="44" />
+                            </parameter>
+                            <parameter>
+                                <literal-expression value="1" start-index="46" stop-index="46" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                    <parameter>
+                        <function function-name="POINT" start-index="50" stop-index="72" text="POINT(user_id,order_id)">
+                            <parameter>
+                                <column-reference name="user_id" start-index="56" stop-index="62" />
+                            </parameter>
+                            <parameter>
+                                <column-reference name="order_id" start-index="64" stop-index="71" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_mbrcovers_with_variables">
+        <from>
+            <simple-table name="t_order" start-index="32" stop-index="38" />
+        </from>
+        <projections start-index="7" stop-index="25">
+            <expression-projection text="MBRCovers(@g1, @g2)" start-index="7" stop-index="25">
+                <expr>
+                    <function function-name="MBRCovers" start-index="7" stop-index="25" text="MBRCovers(@g1, @g2)">
+                        <parameter>
+                            <variable-segment text="@g1" start-index="17" stop-index="19" variable="g1" />
+                        </parameter>
+                        <parameter>
+                            <variable-segment text="@g2" start-index="22" stop-index="24" variable="g2" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_mbrcovers_with_geometry_columns">
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="22" stop-index="50">
+            <expr>
+                <function function-name="MBRCovers" start-index="28" stop-index="50" text="MBRCovers(geom1, geom2)">
+                    <parameter>
+                        <column-reference name="geom1" start-index="38" stop-index="42" />
+                    </parameter>
+                    <parameter>
+                        <column-reference name="geom2" start-index="45" stop-index="49" />
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+    
     <select sql-case-id="select_with_mbrcoveredby_function">
         <from>
             <simple-table name="t_order" start-index="14" stop-index="20" />
