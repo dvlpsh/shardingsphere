@@ -1491,6 +1491,10 @@ MBRINTERSECTS
     : M B R I N T E R S E C T S
     ;
 
+MBROVERLAPS
+    : M B R O V E R L A P S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
