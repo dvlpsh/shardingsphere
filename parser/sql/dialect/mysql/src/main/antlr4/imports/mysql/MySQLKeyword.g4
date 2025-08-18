@@ -1467,6 +1467,10 @@ MATCH
      : M A T C H
      ;
 
+MBRCONTAINS
+    : M B R C O N T A I N S
+    ;
+
 MAXVALUE
     : M A X V A L U E
     ;
