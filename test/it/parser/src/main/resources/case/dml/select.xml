@@ -11733,4 +11733,80 @@
             <simple-table name="Person" start-index="14" stop-index="19" />
         </from>
     </select>
+
+    <select sql-case-id="select_with_mbrwithin_function">
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <where start-index="22" stop-index="64">
+            <expr>
+                <function start-index="28" stop-index="64" text="MBRWithin(POINT(1,1), POINT(user_id,order_id))" function-name="MBRWithin">
+                    <parameter>
+                        <function start-index="38" stop-index="47" text="POINT(1,1)" function-name="POINT">
+                            <parameter>
+                                <literal-expression start-index="44" stop-index="44" value="1" />
+                            </parameter>
+                            <parameter>
+                                <literal-expression start-index="46" stop-index="46" value="1" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                    <parameter>
+                        <function start-index="50" stop-index="63" text="POINT(user_id,order_id)" function-name="POINT">
+                            <parameter>
+                                <column name="user_id" start-index="56" stop-index="62" />
+                            </parameter>
+                            <parameter>
+                                <column name="order_id" start-index="64" stop-index="71" />
+                            </parameter>
+                        </function>
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
+
+    <select sql-case-id="select_mbrwithin_with_variables">
+        <projections start-index="7" stop-index="27">
+            <expression-projection text="MBRWithin(@g1, @g2)" start-index="7" stop-index="27">
+                <expr>
+                    <function start-index="7" stop-index="27" text="MBRWithin(@g1, @g2)" function-name="MBRWithin">
+                        <parameter>
+                            <variable name="@g1" start-index="18" stop-index="20" />
+                        </parameter>
+                        <parameter>
+                            <variable name="@g2" start-index="23" stop-index="25" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+        <from>
+            <simple-table name="t_order" start-index="34" stop-index="40" />
+        </from>
+    </select>
+
+    <select sql-case-id="select_mbrwithin_with_geometry_columns">
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <from>
+            <simple-table name="t_order" start-index="14" stop-index="20" />
+        </from>
+        <where start-index="22" stop-index="45">
+            <expr>
+                <function start-index="28" stop-index="45" text="MBRWithin(geom1, geom2)" function-name="MBRWithin">
+                    <parameter>
+                        <column name="geom1" start-index="38" stop-index="42" />
+                    </parameter>
+                    <parameter>
+                        <column name="geom2" start-index="45" stop-index="49" />
+                    </parameter>
+                </function>
+            </expr>
+        </where>
+    </select>
 </sql-parser-test-cases>
