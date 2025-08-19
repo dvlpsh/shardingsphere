@@ -11893,4 +11893,13 @@
             <simple-table name="replication_status" start-index="46" stop-index="62" alias="t" />
         </from>
     </select>
+
+    <select sql-case-id="select_use_hint">
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <from>
+            <simple-table name="Person" start-index="14" stop-index="19" />
+        </from>
+    </select>
 </sql-parser-test-cases>
