@@ -397,4 +397,8 @@
     <sql-case id="select_with_predict_function" value="SELECT d.*, p.Score FROM PREDICT(MODEL = @model, DATA = dbo.mytable AS d) WITH (Score FLOAT) AS p;" db-types="SQLServer"/>
     <sql-case id="select_window_clause" value="SELECT user_id, ROW_NUMBER() OVER w AS 'row_number', RANK() OVER w AS 'rank', DENSE_RANK() OVER w AS 'dense_rank' FROM t_order WHERE order_id = ? WINDOW w AS (ORDER BY user_id)" db-types="SQLServer"/>
     <sql-case id="select_maxrecursion_hint" value="SELECT * FROM Person OPTION (MAXRECURSION 2);" db-types="SQLServer"/>
+    <sql-case id="select_master_pos_wait_basic" value="SELECT MASTER_POS_WAIT('mysql-bin.000001', 100)" db-types="MySQL"/>
+    <sql-case id="select_master_pos_wait_with_timeout" value="SELECT MASTER_POS_WAIT('mysql-bin.000001', 100, 30)" db-types="MySQL"/>
+    <sql-case id="select_master_pos_wait_with_channel" value="SELECT MASTER_POS_WAIT('mysql-bin.000001', 100, 30, 'channel1')" db-types="MySQL"/>
+    <sql-case id="select_master_pos_wait_table_columns" value="SELECT MASTER_POS_WAIT(t.log_name, t.log_pos) FROM replication_status t" db-types="MySQL"/>
 </sql-cases>

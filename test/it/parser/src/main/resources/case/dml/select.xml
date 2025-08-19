@@ -11809,4 +11809,88 @@
             </expr>
         </where>
     </select>
+
+    <select sql-case-id="select_master_pos_wait_basic">
+        <projections start-index="7" stop-index="47">
+            <expression-projection text="MASTER_POS_WAIT('mysql-bin.000001', 100)" start-index="7" stop-index="47">
+                <expr>
+                    <function start-index="7" stop-index="47" text="MASTER_POS_WAIT('mysql-bin.000001', 100)" function-name="MASTER_POS_WAIT">
+                        <parameter>
+                            <literal-expression start-index="23" stop-index="40" value="mysql-bin.000001" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="43" stop-index="45" value="100" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_master_pos_wait_with_timeout">
+        <projections start-index="7" stop-index="51">
+            <expression-projection text="MASTER_POS_WAIT('mysql-bin.000001', 100, 30)" start-index="7" stop-index="51">
+                <expr>
+                    <function start-index="7" stop-index="51" text="MASTER_POS_WAIT('mysql-bin.000001', 100, 30)" function-name="MASTER_POS_WAIT">
+                        <parameter>
+                            <literal-expression start-index="23" stop-index="40" value="mysql-bin.000001" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="43" stop-index="45" value="100" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="48" stop-index="49" value="30" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_master_pos_wait_with_channel">
+        <projections start-index="7" stop-index="63">
+            <expression-projection text="MASTER_POS_WAIT('mysql-bin.000001', 100, 30, 'channel1')" start-index="7" stop-index="63">
+                <expr>
+                    <function start-index="7" stop-index="63" text="MASTER_POS_WAIT('mysql-bin.000001', 100, 30, 'channel1')" function-name="MASTER_POS_WAIT">
+                        <parameter>
+                            <literal-expression start-index="23" stop-index="40" value="mysql-bin.000001" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="43" stop-index="45" value="100" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="48" stop-index="49" value="30" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression start-index="52" stop-index="61" value="channel1" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+
+    <select sql-case-id="select_master_pos_wait_table_columns">
+        <projections start-index="7" stop-index="39">
+            <expression-projection text="MASTER_POS_WAIT(t.log_name, t.log_pos)" start-index="7" stop-index="39">
+                <expr>
+                    <function start-index="7" stop-index="39" text="MASTER_POS_WAIT(t.log_name, t.log_pos)" function-name="MASTER_POS_WAIT">
+                        <parameter>
+                            <column name="log_name" start-index="23" stop-index="32">
+                                <owner name="t" start-index="23" stop-index="23" />
+                            </column>
+                        </parameter>
+                        <parameter>
+                            <column name="log_pos" start-index="35" stop-index="43">
+                                <owner name="t" start-index="35" stop-index="35" />
+                            </column>
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+        <from>
+            <simple-table name="replication_status" start-index="46" stop-index="62" alias="t" />
+        </from>
+    </select>
 </sql-parser-test-cases>

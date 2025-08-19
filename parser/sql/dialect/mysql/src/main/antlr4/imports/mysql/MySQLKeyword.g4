@@ -1395,6 +1395,10 @@ MASTER_PORT
     : M A S T E R UL_ P O R T
     ;
 
+MASTER_POS_WAIT
+    : M A S T E R UL_ P O S UL_ W A I T
+    ;
+
 MASTER_PUBLIC_KEY_PATH
     : M A S T E R UL_ P  U B L I C UL_ K E Y UL_ P A T H
     ;
