@@ -305,4 +305,9 @@
     <sql-case id="select_pi" value="SELECT PI()" db-types="MySQL" />
     <sql-case id="select_regexp" value="SELECT 'a' REGEXP '^[a-d]'" db-types="MySQL" />
     <sql-case id="select_with_json_object_function" value="SELECT JSON_OBJECT('name' VALUE 'John', 'age' VALUE 30) AS json_data FROM DUAL" db-types="Oracle" />
+    <sql-case id="select_make_set_simple" value="SELECT MAKE_SET(1, 'a', 'b', 'c')" db-types="MySQL" />
+    <sql-case id="select_make_set_multiple_bits" value="SELECT MAKE_SET(1 | 4, 'hello', 'nice', 'world')" db-types="MySQL" />
+    <sql-case id="select_make_set_with_null" value="SELECT MAKE_SET(1 | 4, 'hello', 'nice', NULL, 'world')" db-types="MySQL" />
+    <sql-case id="select_make_set_zero_bits" value="SELECT MAKE_SET(0, 'a', 'b', 'c')" db-types="MySQL" />
+    <sql-case id="select_make_set_from_table" value="SELECT MAKE_SET(status, 'pending', 'active', 'inactive') FROM t_order" db-types="MySQL" />
 </sql-cases>
