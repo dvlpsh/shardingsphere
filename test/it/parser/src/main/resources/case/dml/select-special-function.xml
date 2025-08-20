@@ -5668,4 +5668,106 @@
             </expression-projection>
         </projections>
     </select>
+    <select sql-case-id="select_ltrim_basic">
+        <projections start-index="7" stop-index="21">
+            <expression-projection start-index="7" stop-index="21" text="LTRIM('  test')">
+                <expr>
+                    <function function-name="LTRIM" text="LTRIM('  test')" start-index="7" stop-index="21">
+                        <parameter>
+                            <literal-expression value="  test" start-index="13" stop-index="20" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_ltrim_column">
+        <from>
+            <simple-table name="users" start-index="24" stop-index="28" />
+        </from>
+        <projections start-index="7" stop-index="17">
+            <expression-projection start-index="7" stop-index="17" text="LTRIM(name)">
+                <expr>
+                    <function function-name="LTRIM" text="LTRIM(name)" start-index="7" stop-index="17">
+                        <parameter>
+                            <column name="name" start-index="13" stop-index="16" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_ltrim_where">
+        <from>
+            <simple-table name="users" start-index="14" stop-index="18" />
+        </from>
+        <projections start-index="7" stop-index="7">
+            <shorthand-projection start-index="7" stop-index="7" />
+        </projections>
+        <where start-index="20" stop-index="45">
+            <expr>
+                <binary-operation-expression start-index="26" stop-index="45">
+                    <left>
+                        <function function-name="LTRIM" text="LTRIM(name)" start-index="26" stop-index="36">
+                            <parameter>
+                                <column name="name" start-index="32" stop-index="35" />
+                            </parameter>
+                        </function>
+                    </left>
+                    <operator>=</operator>
+                    <right>
+                        <literal-expression value="John" start-index="40" stop-index="45" />
+                    </right>
+                </binary-operation-expression>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_ltrim_alias">
+        <projections start-index="7" stop-index="37">
+            <expression-projection start-index="7" stop-index="37" text="LTRIM(' data ')" alias="trimmed_data">
+                <expr>
+                    <function function-name="LTRIM" text="LTRIM(' data ')" start-index="7" stop-index="21">
+                        <parameter>
+                            <literal-expression value=" data " start-index="13" stop-index="20" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_ltrim_table_column">
+        <from>
+            <simple-table name="users" start-index="30" stop-index="34" />
+        </from>
+        <projections start-index="7" stop-index="23">
+            <expression-projection start-index="7" stop-index="23" text="LTRIM(users.name)">
+                <expr>
+                    <function function-name="LTRIM" text="LTRIM(users.name)" start-index="7" stop-index="23">
+                        <parameter>
+                            <column name="name" start-index="13" stop-index="22">
+                                <owner name="users" start-index="13" stop-index="17" />
+                            </column>
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+        <where start-index="36" stop-index="47">
+            <expr>
+                <binary-operation-expression start-index="42" stop-index="47">
+                    <left>
+                        <column name="id" start-index="42" stop-index="43" />
+                    </left>
+                    <operator>=</operator>
+                    <right>
+                        <literal-expression value="1" start-index="47" stop-index="47" />
+                    </right>
+                </binary-operation-expression>
+            </expr>
+        </where>
+    </select>
 </sql-parser-test-cases>
