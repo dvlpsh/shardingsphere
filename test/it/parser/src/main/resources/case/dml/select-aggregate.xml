@@ -32,7 +32,7 @@
         </from>
         <projections start-index="7" stop-index="41">
             <aggregation-projection type="SUM" expression="SUM(t_order.user_id)" alias="user_id_sum" start-index="7" stop-index="26">
-                <>
+                <parameters>
                     <column name="user_id" start-index="17" stop-index="25">
                         <owner name="t_order" start-index="8" stop-index="16" />
                     </column>
@@ -116,10 +116,11 @@
             <simple-table name="t_order" start-index="40" stop-index="46" />
         </from>
         <projections start-index="7" stop-index="33">
-            <aggregation-projection type="MAX" expression="MAX(user_id)" alias="max_user_id" start-index="7" stop-index="18" />
+            <aggregation-projection type="MAX" expression="MAX(user_id)" alias="max_user_id" start-index="7" stop-index="18">
                 <parameters>
                     <column name="user_id" start-index="11" stop-index="17" />
                 </parameters>
+            </aggregation-projection>
         </projections>
     </select>
     
@@ -198,9 +199,9 @@
                             <select>
                                 <projections start-index="50" stop-index="66">
                                     <aggregation-projection type="MAX" expression="MAX(order_amount)" start-index="50" stop-index="66">
-                                        <>
+                                        <parameters>
                                             <column name="order_amount" start-index="53" stop-index="64" />
-                                        </>
+                                        </parameters>
                                     </aggregation-projection>
                                 </projections>
                                 <from>
