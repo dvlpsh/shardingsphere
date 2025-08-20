@@ -315,4 +315,9 @@
     <sql-case id="select_makedate_function_complex" value="SELECT user_id, MAKEDATE(YEAR(created_at), 100) as day100 FROM users WHERE id = 1" db-types="MySQL" />
     <sql-case id="select_makedate_function_zero" value="SELECT MAKEDATE(2011, 0)" db-types="MySQL" />
     <sql-case id="select_makedate_function_365" value="SELECT MAKEDATE(2014, 365)" db-types="MySQL" />
+    <sql-case id="select_maketime_function" value="SELECT MAKETIME(12, 15, 30)" db-types="MySQL" />
+    <sql-case id="select_maketime_function_with_table" value="SELECT MAKETIME(hour_col, minute_col, second_col) FROM time_table" db-types="MySQL" />
+    <sql-case id="select_maketime_function_complex" value="SELECT user_id, MAKETIME(HOUR(created_at), MINUTE(created_at), SECOND(created_at)) as time_value FROM events WHERE id = 1" db-types="MySQL" />
+    <sql-case id="select_maketime_function_fractional" value="SELECT MAKETIME(12, 30, 45.123)" db-types="MySQL" />
+    <sql-case id="select_maketime_function_edge_cases" value="SELECT MAKETIME(0, 0, 0)" db-types="MySQL" />
 </sql-cases>

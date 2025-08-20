@@ -5434,10 +5434,10 @@
         </from>
     </select>
     <select sql-case-id="select_makedate_function">
-        <projections start-index="7" stop-index="22">
-            <expression-projection text="MAKEDATE(2011, 31)" start-index="7" stop-index="22">
+        <projections start-index="7" stop-index="24">
+            <expression-projection text="MAKEDATE(2011, 31)" start-index="7" stop-index="24">
                 <expr>
-                    <function function-name="MAKEDATE" start-index="7" stop-index="22" text="MAKEDATE(2011, 31)">
+                    <function function-name="MAKEDATE" start-index="7" stop-index="24" text="MAKEDATE(2011, 31)">
                         <parameter>
                             <literal-expression value="2011" start-index="16" stop-index="19" />
                         </parameter>
@@ -5451,12 +5451,12 @@
     </select>
     <select sql-case-id="select_makedate_function_with_table">
         <from>
-            <simple-table name="date_table" start-index="43" stop-index="52" />
+            <simple-table name="date_table" start-index="40" stop-index="49" />
         </from>
-        <projections start-index="7" stop-index="34">
-            <expression-projection text="MAKEDATE(year_col, day_col)" start-index="7" stop-index="34">
+        <projections start-index="7" stop-index="33">
+            <expression-projection text="MAKEDATE(year_col, day_col)" start-index="7" stop-index="33">
                 <expr>
-                    <function function-name="MAKEDATE" start-index="7" stop-index="34" text="MAKEDATE(year_col, day_col)">
+                    <function function-name="MAKEDATE" start-index="7" stop-index="33" text="MAKEDATE(year_col, day_col)">
                         <parameter>
                             <column name="year_col" start-index="16" stop-index="23" />
                         </parameter>
@@ -5470,13 +5470,13 @@
     </select>
     <select sql-case-id="select_makedate_function_complex">
         <from>
-            <simple-table name="users" start-index="65" stop-index="69" />
+            <simple-table name="users" start-index="63" stop-index="67" />
         </from>
         <projections start-index="7" stop-index="56">
             <column-projection name="user_id" start-index="7" stop-index="13" />
-            <expression-projection alias="day100" text="MAKEDATE(YEAR(created_at), 100) as day100" start-index="16" stop-index="56">
+            <expression-projection alias="day100" text="MAKEDATE(YEAR(created_at), 100)" start-index="16" stop-index="56">
                 <expr>
-                    <function function-name="MAKEDATE" start-index="16" stop-index="47" text="MAKEDATE(YEAR(created_at), 100)">
+                    <function function-name="MAKEDATE" start-index="16" stop-index="46" text="MAKEDATE(YEAR(created_at), 100)">
                         <parameter>
                             <function function-name="YEAR" start-index="25" stop-index="40" text="YEAR(created_at)">
                                 <parameter>
@@ -5491,25 +5491,25 @@
                 </expr>
             </expression-projection>
         </projections>
-        <where start-index="71" stop-index="78">
+        <where start-index="69" stop-index="80">
             <expr>
-                <binary-operation-expression start-index="77" stop-index="82">
+                <binary-operation-expression start-index="75" stop-index="80">
                     <left>
-                        <column name="id" start-index="77" stop-index="78" />
+                        <column name="id" start-index="75" stop-index="76" />
                     </left>
                     <operator>=</operator>
                     <right>
-                        <literal-expression value="1" start-index="82" stop-index="82" />
+                        <literal-expression value="1" start-index="80" stop-index="80" />
                     </right>
                 </binary-operation-expression>
             </expr>
         </where>
     </select>
     <select sql-case-id="select_makedate_function_zero">
-        <projections start-index="7" stop-index="21">
-            <expression-projection text="MAKEDATE(2011, 0)" start-index="7" stop-index="21">
+        <projections start-index="7" stop-index="23">
+            <expression-projection text="MAKEDATE(2011, 0)" start-index="7" stop-index="23">
                 <expr>
-                    <function function-name="MAKEDATE" start-index="7" stop-index="21" text="MAKEDATE(2011, 0)">
+                    <function function-name="MAKEDATE" start-index="7" stop-index="23" text="MAKEDATE(2011, 0)">
                         <parameter>
                             <literal-expression value="2011" start-index="16" stop-index="19" />
                         </parameter>
@@ -5522,15 +5522,146 @@
         </projections>
     </select>
     <select sql-case-id="select_makedate_function_365">
-        <projections start-index="7" stop-index="24">
-            <expression-projection text="MAKEDATE(2014, 365)" start-index="7" stop-index="24">
+        <projections start-index="7" stop-index="25">
+            <expression-projection text="MAKEDATE(2014, 365)" start-index="7" stop-index="25">
                 <expr>
-                    <function function-name="MAKEDATE" start-index="7" stop-index="24" text="MAKEDATE(2014, 365)">
+                    <function function-name="MAKEDATE" start-index="7" stop-index="25" text="MAKEDATE(2014, 365)">
                         <parameter>
                             <literal-expression value="2014" start-index="16" stop-index="19" />
                         </parameter>
                         <parameter>
                             <literal-expression value="365" start-index="22" stop-index="24" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    <select sql-case-id="select_maketime_function">
+        <projections start-index="7" stop-index="26">
+            <expression-projection text="MAKETIME(12, 15, 30)" start-index="7" stop-index="26">
+                <expr>
+                    <function function-name="MAKETIME" start-index="7" stop-index="26" text="MAKETIME(12, 15, 30)">
+                        <parameter>
+                            <literal-expression value="12" start-index="16" stop-index="17" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="15" start-index="20" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="30" start-index="24" stop-index="25" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_maketime_function_with_table">
+        <from>
+            <simple-table name="time_table" start-index="55" stop-index="64" />
+        </from>
+        <projections start-index="7" stop-index="48">
+            <expression-projection text="MAKETIME(hour_col, minute_col, second_col)" start-index="7" stop-index="48">
+                <expr>
+                    <function function-name="MAKETIME" start-index="7" stop-index="48" text="MAKETIME(hour_col, minute_col, second_col)">
+                        <parameter>
+                            <column name="hour_col" start-index="16" stop-index="23" />
+                        </parameter>
+                        <parameter>
+                            <column name="minute_col" start-index="26" stop-index="35" />
+                        </parameter>
+                        <parameter>
+                            <column name="second_col" start-index="38" stop-index="47" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_maketime_function_complex">
+        <from>
+            <simple-table name="events" start-index="102" stop-index="107" />
+        </from>
+        <projections start-index="7" stop-index="95">
+            <column-projection name="user_id" start-index="7" stop-index="13" />
+            <expression-projection alias="time_value" text="MAKETIME(HOUR(created_at), MINUTE(created_at), SECOND(created_at))" start-index="16" stop-index="95">
+                <expr>
+                    <function function-name="MAKETIME" start-index="16" stop-index="81" text="MAKETIME(HOUR(created_at), MINUTE(created_at), SECOND(created_at))">
+                        <parameter>
+                            <function function-name="HOUR" start-index="25" stop-index="40" text="HOUR(created_at)">
+                                <parameter>
+                                    <column name="created_at" start-index="30" stop-index="39" />
+                                </parameter>
+                            </function>
+                        </parameter>
+                        <parameter>
+                            <function function-name="MINUTE" start-index="43" stop-index="60" text="MINUTE(created_at)">
+                                <parameter>
+                                    <column name="created_at" start-index="50" stop-index="59" />
+                                </parameter>
+                            </function>
+                        </parameter>
+                        <parameter>
+                            <function function-name="SECOND" start-index="63" stop-index="80" text="SECOND(created_at)">
+                                <parameter>
+                                    <column name="created_at" start-index="70" stop-index="79" />
+                                </parameter>
+                            </function>
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+        <where start-index="109" stop-index="120">
+            <expr>
+                <binary-operation-expression start-index="115" stop-index="120">
+                    <left>
+                        <column name="id" start-index="115" stop-index="116" />
+                    </left>
+                    <operator>=</operator>
+                    <right>
+                        <literal-expression value="1" start-index="120" stop-index="120" />
+                    </right>
+                </binary-operation-expression>
+            </expr>
+        </where>
+    </select>
+    
+    <select sql-case-id="select_maketime_function_fractional">
+        <projections start-index="7" stop-index="30">
+            <expression-projection text="MAKETIME(12, 30, 45.123)" start-index="7" stop-index="30">
+                <expr>
+                    <function function-name="MAKETIME" start-index="7" stop-index="30" text="MAKETIME(12, 30, 45.123)">
+                        <parameter>
+                            <literal-expression value="12" start-index="16" stop-index="17" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="30" start-index="20" stop-index="21" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="45.123" start-index="24" stop-index="29" />
+                        </parameter>
+                    </function>
+                </expr>
+            </expression-projection>
+        </projections>
+    </select>
+    
+    <select sql-case-id="select_maketime_function_edge_cases">
+        <projections start-index="7" stop-index="23">
+            <expression-projection text="MAKETIME(0, 0, 0)" start-index="7" stop-index="23">
+                <expr>
+                    <function function-name="MAKETIME" start-index="7" stop-index="23" text="MAKETIME(0, 0, 0)">
+                        <parameter>
+                            <literal-expression value="0" start-index="16" stop-index="16" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="0" start-index="19" stop-index="19" />
+                        </parameter>
+                        <parameter>
+                            <literal-expression value="0" start-index="22" stop-index="22" />
                         </parameter>
                     </function>
                 </expr>
